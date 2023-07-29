@@ -7,5 +7,6 @@ const router = require('express').Router();
 // Sample API Endpoint for the template repository
 require('./sampleApiRequest')(router);
 // Add additional API endpoints below
+require('./getRegions')(router);
 
 module.exports = router;
