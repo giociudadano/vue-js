@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 // Add your models here and how you would like to import them, as seen at the
 // bottom of this file
 const models = {
-  SampleModel: require('./sampleModel')
+  SampleModel: require('./sampleModel'),
+  RegionModel: require('./regionModel')
 };
 
 // Create object for export. Only the `exportModels` object will be
