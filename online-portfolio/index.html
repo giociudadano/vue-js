@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gio Ciudadano</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+    <link rel="icon" href="./assets/icon.png" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav
+        class="navbar is-fixed-top is-black-3"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a
+            class="navbar-item no-padding-h"
+            href="https://giociudadano.github.io"
+          >
+            <img src="./assets/icon.png" height="32" />
+            <p class="text-website-name">{{websiteName}}</p>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" onclick="scrollToSection('about-me')">
+              Home
+            </a>
+
+            <a class="navbar-item" onclick="scrollToSection('projects')">
+              Projects
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"> More </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item" onclick="scrollToSection('experience')">
+                  Experience</a
+                >
+                <a class="navbar-item" onclick="scrollToSection('education')">
+                  Education
+                </a>
+                <a class="navbar-item" onclick="scrollToSection('skills')">
+                  Skills
+                </a>
+                <hr class="navbar-divider" />
+                <a class="navbar-item" onclick="scrollToSection('contact')">
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  class="button is-primary"
+                  onclick="scrollToSection('contact')"
+                >
+                  <strong>Contact</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="hero is-fullheight" id="about-me">
+        <div class="hero-head">
+          <div class="columns">
+            <div class="column is-10 is-offset-1 padding-wide">
+              <div>
+                <nav
+                  class="navbar"
+                  role="navigation"
+                  aria-label="main navigation"
+                >
+                  <div class="navbar-brand">
+                    <a
+                      class="navbar-item no-padding-h"
+                      href="https://giociudadano.github.io"
+                    >
+                      <img src="./assets/icon.png" height="32" />
+                      <p class="text-website-name">{{websiteName}}</p>
+                    </a>
+                  </div>
+
+                  <div class="navbar-menu">
+                    <div class="navbar-start"></div>
+
+                    <div class="navbar-end">
+                      <a
+                        class="navbar-item"
+                        onclick="scrollToSection('about-me')"
+                        >{{sectionHeaders[0]}}</a
+                      >
+                      <a
+                        class="navbar-item"
+                        onclick="scrollToSection('experience')"
+                        >{{sectionHeaders[1]}}</a
+                      >
+                      <a
+                        class="navbar-item"
+                        onclick="scrollToSection('education')"
+                        >{{sectionHeaders[2]}}</a
+                      >
+                      <a class="navbar-item" onclick="scrollToSection('skills')"
+                        >{{sectionHeaders[3]}}</a
+                      >
+                      <a
+                        class="navbar-item"
+                        onclick="scrollToSection('projects')"
+                        >{{sectionHeaders[4]}}</a
+                      >
+                      <a
+                        class="navbar-item"
+                        onclick="scrollToSection('contact')"
+                        >{{sectionHeaders[5]}}</a
+                      >
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-body no-padding-h">
+          <div class="columns hero-info">
+            <div class="column is-two-fifths is-offset-1">
+              <p class="no-margin title text-header-1">{{heroTitle}}</p>
+              <p class="text-accent-1 margin-narrow">{{heroSubtitle}}</p>
+              <p class="subtitle text-desc-white">{{heroDescription}}</p>
+              <div class="columns is-mobile">
+                <div class="column is-narrow padding-narrow">
+                  <a href="https://www.linkedin.com/in/gcciudadano"
+                    ><img
+                      class="media-icon"
+                      src="./assets/icons8-linkedin-48.png"
+                  /></a>
+                </div>
+                <div class="column is-narrow padding-narrow">
+                  <a href="https://www.behance.net/giociudadano"
+                    ><img
+                      class="media-icon"
+                      src="./assets/icons8-behance-48.png"
+                  /></a>
+                </div>
+                <div class="column is-narrow padding-narrow">
+                  <a href="https://www.github.com/giociudadano">
+                    <img
+                      class="media-icon"
+                      src="./assets/icons8-github-48.png"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="columns is-mobile"
+                onclick="scrollToSection('projects')"
+              >
+                <div class="column is-narrow">
+                  <div class="interact-text-container">
+                    <div class="interact-text">{{heroCallToAction}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-video-container">
+            <!--<iframe
+              class="hero-video"
+              src="https://www.youtube.com/embed/uvcxiYZRInE?start=504&autoplay=1&mute=1&controls=0"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>-->
+            <img class="hero-video" src="./assets/hero-fallback-image.png" />
+          </div>
+        </div>
+        <div class="hero-gradient"></div>
+      </section>
+      <section class="section is-small is-black-1 no-padding-h">
+        <div class="columns padding-wide is-centered is-variable is-6">
+          <div class="column is-3">
+            <div class="columns is-multiline">
+              <div class="column is-full" id="experience">
+                <p class="text-header-2">{{sectionHeaders[1]}}</p>
+                <div
+                  class="columns experience-card hoverable-card margin-narrow"
+                >
+                  <div class="column no-padding-bottom">
+                    <p class="date">{{experienceCards[0].date}}</p>
+                  </div>
+                  <div class="column is-8">
+                    <a :href="experienceCards[0].titleLink">
+                      <div class="title">
+                        {{experienceCards[0].position}} •
+                        {{experienceCards[0].company}}
+                        <span class="external-link">🡭</span>
+                      </div>
+                    </a>
+                    <p class="description">
+                      {{experienceCards[0].description}}
+                    </p>
+                    <p class="tags">
+                      <span class="tag" v-for="tag in experienceCards[0].tags">
+                        <span>{{tag}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="columns experience-card hoverable-card margin-narrow"
+                >
+                  <div class="column no-padding-bottom">
+                    <p class="date">{{experienceCards[1].date}}</p>
+                  </div>
+                  <div class="column is-8">
+                    <a :href="experienceCards[1].titleLink">
+                      <div class="title">
+                        {{experienceCards[1].position}} •
+                        {{experienceCards[1].company}}
+                        <span class="external-link">🡭</span>
+                      </div>
+                    </a>
+                    <p class="description">
+                      {{experienceCards[1].description}}
+                    </p>
+                    <p class="tags">
+                      <span class="tag" v-for="tag in experienceCards[1].tags">
+                        <span>{{tag}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-full" id="education">
+                <p class="text-header-2">{{sectionHeaders[2]}}</p>
+                <div class="columns is-mobile education-card margin-narrow">
+                  <div class="column is-3">
+                    <img :src="educationCards[0].logoLink" />
+                  </div>
+                  <div class="column is-8">
+                    <p class="title">{{educationCards[0].title}}</p>
+                    <p class="subtitle">{{educationCards[0].subtitle}}</p>
+                    <p class="description">{{educationCards[0].line1}}</p>
+                    <p class="description">{{educationCards[0].line2}}</p>
+                  </div>
+                </div>
+                <div class="columns is-mobile education-card margin-narrow">
+                  <div class="column is-3">
+                    <img :src="educationCards[1].logoLink" />
+                  </div>
+                  <div class="column is-8">
+                    <p class="title">{{educationCards[1].title}}</p>
+                    <p class="subtitle">{{educationCards[1].subtitle}}</p>
+                    <p class="description">{{educationCards[1].line1}}</p>
+                    <p class="description">{{educationCards[1].line2}}</p>
+                  </div>
+                </div>
+                <div class="columns is-mobile education-card margin-narrow">
+                  <div class="column is-3">
+                    <img :src="educationCards[2].logoLink" />
+                  </div>
+                  <div class="column is-8">
+                    <p class="title">{{educationCards[2].title}}</p>
+                    <p class="subtitle">{{educationCards[2].subtitle}}</p>
+                    <p class="description">{{educationCards[2].line1}}</p>
+                    <p class="description">{{educationCards[2].line2}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-full" id="skills">
+                <p class="text-header-2">{{sectionHeaders[3]}}</p>
+                <div class="columns skills-card margin-narrow">
+                  <div class="column">
+                    <p class="title">{{skillCards[0].title}}</p>
+                    <p class="tags">
+                      <span class="tag" v-for="tag in skillCards[0].tags">
+                        <span>{{tag}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="columns skills-card">
+                  <div class="column">
+                    <p class="title">{{skillCards[1].title}}</p>
+                    <p class="tags">
+                      <span class="tag" v-for="tag in skillCards[1].tags">
+                        <span>{{tag}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-7" id="projects">
+            <p class="text-header-2">{{sectionHeaders[4]}}</p>
+            <div class="columns is-multiline is-variable is-4 margin-narrow">
+              <div class="column is-4 project-card hoverable-card">
+                <a :href="projectCards[0].webLink">
+                  <img
+                    class="section-mc-thumb"
+                    :src="projectCards[0].thumbnailLink"
+                  />
+
+                  <p class="title">
+                    {{projectCards[0].title}}
+                    <span class="external-link">🡭</span>
+                  </p>
+                </a>
+                <p class="description">{{projectCards[0].description}}</p>
+                <p class="tags">
+                  <span class="tag" v-for="tag in projectCards[0].tags">
+                    <span>{{tag}}</span>
+                  </span>
+                </p>
+              </div>
+              <div class="column is-4 project-card hoverable-card">
+                <a :href="projectCards[1].webLink">
+                  <img
+                    class="section-mc-thumb"
+                    :src="projectCards[1].thumbnailLink"
+                  />
+
+                  <p class="title">
+                    {{projectCards[1].title}}
+                    <span class="external-link">🡭</span>
+                  </p></a
+                >
+                <p class="description">{{projectCards[1].description}}</p>
+                <p class="tags">
+                  <span class="tag" v-for="tag in projectCards[1].tags">
+                    <span>{{tag}}</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section is-medium is-black-2">
+        <div class="columns is-centered is-narrow padding-narrow">
+          <div class="column has-text-centered is-5" id="contact">
+            <p class="text-header-2">{{sectionHeaders[5]}}</p>
+            <p class="text-desc-gray">{{contact.description}}</p>
+            <div
+              class="columns is-mobile is-centered"
+              onclick="window.location='mailto:gcciudadano@gmail.com';"
+            >
+              <div class="column is-narrow padding-wide">
+                <div class="interact-text-container">
+                  <div class="interact-text">{{contact.callToAction}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer is-black-1">
+        <div
+          class="columns has-text-centered is-centered is-narrow padding-narrow"
+        >
+          <div class="column is-5" id="contact">
+            <div class="columns is-mobile is-centered is-vcentered no-margin">
+              <div class="column is-narrow no-padding">
+                <img src="./assets/icon.png" height="48" width="48" />
+              </div>
+              <div class="column is-narrow no-padding">
+                <p class="text-website-name">{{websiteName}}</p>
+              </div>
+            </div>
+            <div class="column no-padding-v">
+              <p class="text-desc-gray">{{copyrightText}}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./main.js"></script>
+    <script>
+      const app = appToMount.mount('#app');
+    </script>
+  </body>
+</html>
