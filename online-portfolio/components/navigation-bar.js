@@ -2,11 +2,11 @@ appToMount.component('navigation-bar', {
   template:
     /*html*/
     `      
-    <nav class="navbar is-fixed-top is-black-3" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top is-black-3" :class="{shown: isShown}" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item no-padding-h" :href="titleLink">
+        <a class="navbar-item no-padding-h" :href="websiteLink">
           <img :src="iconPath" height="32" />
-          <p class="text-website-name">{{title}}</p>
+          <p class="text-website-name">{{websiteName}}</p>
         </a>
       </div>
     <div id="navbarBasicExample" class="navbar-menu">
@@ -37,9 +37,10 @@ appToMount.component('navigation-bar', {
   </nav>`,
   data() {
     return {
-      title: 'Gio Ciudadano',
-      titleLink: 'https://giociudadano.github.io',
-      iconPath: './assets/icon.png'
+      websiteName: 'Gio Ciudadano',
+      websiteLink: 'https://giociudadano.github.io',
+      iconPath: './assets/icon.png',
+      isShown: false
     };
   },
   methods: {
@@ -47,6 +48,15 @@ appToMount.component('navigation-bar', {
       document
         .getElementById(String(name))
         .scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+    onScroll(event) {
+      this.isShown = window.scrollY > 350;
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
   }
 });
