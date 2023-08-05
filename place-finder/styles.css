@@ -1,0 +1,90 @@
+/* Helper Classes */
+.text-green {
+  color: rgb(68, 187, 136);
+}
+
+.is-white-1 {
+  background-color: rgb(245, 245, 245);
+}
+
+.field {
+  margin: 0.5em 0em;
+}
+
+/* Navigation Bar */
+
+.website-name {
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: rgb(80, 80, 80);
+}
+
+.navbar {
+  padding: 0rem 2rem;
+}
+
+.navbar-item {
+  font-family: 'Bahnschrift';
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(225, 225, 225);
+  letter-spacing: -0.5px;
+  cursor: pointer;
+}
+
+.navbar-start > .navbar-item {
+  margin-left: 1.5rem;
+}
+
+.button.is-primary {
+  background-color: rgb(68, 187, 136) !important;
+}
+
+/* Hero Section */
+
+.error-handler {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(150, 150, 150);
+}
+
+.suggestions {
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.suggestion {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.suggestion-selected {
+  border: 2px solid;
+  box-sizing: border-box;
+  border-color: rgb(180, 255, 222) !important;
+}
+
+.suggestion-address {
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.googleMapsEmbed {
+  height: 400px;
+  width: 100%;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}

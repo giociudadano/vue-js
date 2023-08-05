@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Place Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./assets/icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.4.0/js/all.js"
+    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
+"></script>
+  </head>
+  <body>
+    <div id="app">
+      <navigation-bar></navigation-bar>
+      <hero-section></hero-section>
+      <section class="hero is-fullheight is-white-1">
+        <div class="hero-body hero-body-padding-small">
+          <div class="container">
+            <div class="columns is-centered is-vcentered">
+              <div class="column is-2">
+                <form class="box">
+                  <div class="field">
+                    <label class="label is-small">Province</label>
+                    <div class="control has-icons-left is-expanded">
+                      <div
+                        class="select is-primary is-small is-fullwidth"
+                        :class="{'is-loading': isLoading.provinceSelector}"
+                      >
+                        <select
+                          id="select-province"
+                          disabled
+                          @change="onProvinceChange"
+                        >
+                          <option>Select province</option>
+                          <option v-for="province in regions.provinces">
+                            {{province}}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="icon is-small is-left">
+                        <i class="fas fa-globe-asia"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label is-small">Municipality</label>
+                    <div class="control has-icons-left is-expanded">
+                      <div
+                        class="select is-link is-small is-fullwidth"
+                        :class="{'is-loading': isLoading.municipalitySelector}"
+                      >
+                        <select
+                          id="select-municipality"
+                          disabled
+                          @change="onMunicipalityChange"
+                        >
+                          <option>Select municipality</option>
+                          <option
+                            v-for="municipality in regions.municipalities"
+                          >
+                            {{municipality}}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="icon is-small is-left">
+                        <i class="fas fa-city"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label is-small"
+                      >Barangay
+                      <span class="has-text-weight-normal"
+                        >(Optional)</span
+                      ></label
+                    >
+                    <div class="control has-icons-left is-expanded">
+                      <div
+                        class="select is-danger is-small is-fullwidth"
+                        :class="{'is-loading': isLoading.barangaySelector}"
+                      >
+                        <select
+                          id="select-barangay"
+                          disabled
+                          @change="onBarangayChange"
+                        >
+                          <option>Select barangay</option>
+                          <option v-for="barangay in regions.barangays">
+                            {{barangay}}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="icon is-small is-left">
+                        <i class="fas fa-road"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <small id="error-handler" class="error-handler"></small>
+                </form>
+              </div>
+              <Transition>
+                <div class="column is-3" v-if="viewStates.search">
+                  <form class="box">
+                    <div class="field">
+                      <label class="label is-small">Search</label>
+                      <div
+                        class="control"
+                        :class="{'is-loading': isLoading.search}"
+                      >
+                        <input
+                          class="input is-small"
+                          type="text"
+                          placeholder="Find a place (café, restaurant, mall, etc.)"
+                          @change="onSearchChange"
+                          :disabled="isLoading.search"
+                        />
+                      </div>
+                    </div>
+                    <div class="field" v-if="suggestions.length != 0">
+                      <label class="label is-small">Suggestions</label>
+                      <div class="block suggestions">
+                        <div
+                          class="card suggestion"
+                          v-for="suggestion in suggestions"
+                          @click="onSelectSuggestion"
+                        >
+                          <div class="card-content">
+                            <div class="content">
+                              <div class="suggestion-address is-size-7">
+                                {{suggestion.address}}
+                              </div>
+                              <span class="placeID" style="display: none">
+                                {{suggestion.placeID}}
+                              </span>
+                              <div class="tags are-normal">
+                                <span
+                                  class="tag is-primary"
+                                  v-if="suggestion.province != 'N/A'"
+                                  >{{suggestion.province}}</span
+                                >
+                                <span
+                                  class="tag is-link"
+                                  v-if="suggestion.municipality != 'N/A'"
+                                  >{{suggestion.municipality}}</span
+                                >
+                                <span
+                                  class="tag is-danger"
+                                  v-if="suggestion.barangay != 'N/A'"
+                                  >{{suggestion.barangay}}</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </Transition>
+              <Transition>
+                <div class="column is-4" v-if="viewStates.placeMap">
+                  <form class="box">
+                    <iframe
+                      :src="googleMapsEmbedLink"
+                      class="googleMapsEmbed"
+                    ></iframe>
+                  </form>
+                </div>
+              </Transition>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./main.js"></script>
+    <script src="./components/navigation-bar.js"></script>
+    <script src="./components/hero-section.js"></script>
+    <script>
+      const app = appToMount.mount('#app');
+    </script>
+  </body>
+</html>
