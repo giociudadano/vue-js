@@ -1,0 +1,435 @@
+/* 
+    Name: style.css
+    Description: Custom CSS for giociudadano.github.io
+    Author: Gio Ciudadano
+*/
+
+/* Helper Classes */
+
+.shown {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.no-padding {
+  padding: 0rem !important;
+}
+
+.no-padding-h {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
+
+.no-padding-v {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0rem !important;
+}
+
+.no-margin {
+  margin-bottom: 0rem !important;
+}
+
+.margin-narrow {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.padding-narrow {
+  padding: 0.5rem;
+}
+
+.padding-wide {
+  padding: 2.5rem;
+}
+
+.position-absolute {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Section Classes */
+nav.navbar.is-fixed-top {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 3;
+}
+
+.navbar-link {
+  color: rgb(72, 95, 199);
+}
+
+.navbar-dropdown {
+  background-color: rgb(38, 38, 43);
+}
+
+.navbar-divider {
+  background-color: rgb(32, 32, 35);
+}
+
+a.button.is-primary {
+  background-color: rgb(72, 95, 199);
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a.button.is-primary:hover {
+  background-color: rgb(124, 143, 228);
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.column {
+  scroll-margin-top: 70px;
+}
+
+.is-black-1 {
+  background-color: rgb(32, 32, 35);
+}
+
+.is-black-2 {
+  background-color: rgb(38, 38, 43);
+}
+
+.is-black-3 {
+  background-color: rgb(45, 45, 48);
+}
+/* Text Classes */
+.text-website-name {
+  text-transform: uppercase;
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: rgb(245, 245, 245);
+}
+
+.text-header-1 {
+  font-family: 'Bahnschrift';
+  font-weight: 800;
+  font-size: 55px;
+  color: rgb(245, 245, 245);
+  max-width: 500px;
+  line-height: 0.8;
+  letter-spacing: -2px;
+}
+
+.text-header-2 {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 600;
+  font-size: 28px;
+  color: rgb(245, 245, 245);
+}
+
+.text-accent-1 {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 800;
+  font-size: 18px;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(85, 153, 255) 0%,
+    rgb(220, 114, 255) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.text-desc-white {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 200;
+  font-size: 14px;
+  color: rgb(215, 215, 215);
+  text-align: justify;
+}
+
+.text-desc-gray {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 200;
+  font-size: 16px;
+  color: rgb(195, 195, 195);
+  line-height: 1.15;
+}
+
+/* Hero Section */
+.navbar-item > img {
+  max-height: 3rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.navbar-item {
+  font-family: 'Bahnschrift';
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(225, 225, 225);
+  margin-right: 1.5rem;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+}
+
+.navbar-item:hover {
+  background-color: transparent !important;
+  color: rgb(235, 175, 255) !important;
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-info {
+  position: absolute;
+  z-index: 2;
+  padding: 3rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    -45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgb(107, 0, 143) 100%
+  );
+  background-size: 300% 300%;
+  height: 100vh;
+  width: 100%;
+  animation: gradient 10s ease-out infinite;
+  opacity: 80%;
+  background-color: black;
+  position: absolute;
+  z-index: 0;
+}
+
+.hero-video-fallback {
+  background-image: url(./assets/hero-fallback-image.png);
+}
+
+.hero-video {
+  filter: grayscale(100%);
+  aspect-ratio: 16 / 9;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  left: 30%;
+  top: 50%;
+  transform: translate(-30%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.media-icon {
+  height: 32px;
+  width: 32px;
+  opacity: 50%;
+}
+
+.media-icon:hover {
+  opacity: 100%;
+  transition: all 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.interact-text {
+  font-family: 'Bahnschrift';
+  font-weight: 800;
+  font-size: 14px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 5px 10px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    45deg,
+    rgb(130, 180, 255) 0%,
+    rgb(230, 153, 255) 100%
+  );
+  background-size: 300% 300%;
+  animation: gradient 3s ease-out infinite;
+}
+
+.interact-text:hover {
+  text-shadow: 0px 0px 8px rgba(230, 153, 255, 0.3),
+    0px 0px 8px rgba(230, 153, 255, 0.3);
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.interact-text-container {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(
+      -45deg,
+      rgb(85, 153, 255) 0%,
+      rgb(220, 114, 255) 100%
+    )
+    1;
+  background-size: 300% 300%;
+  animation: gradient 3s ease-out infinite;
+  padding: 4px 4px;
+}
+
+.interact-text-container:hover {
+  box-shadow: 0px 0px 12px rgba(230, 153, 255, 0.4),
+    0px 0px 12px rgba(230, 153, 255, 0.4);
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Experience Cards */
+
+.hoverable-card {
+  transition: all 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 20px;
+}
+
+.hoverable-card:hover {
+  transform: scale(1.05);
+  background-color: rgba(245, 245, 245, 0.1);
+  border-radius: 10px 5px;
+}
+
+.hoverable-card:hover .title {
+  color: rgb(235, 175, 255);
+}
+
+.hoverable-card:hover .external-link {
+  transform: translate(3px, -3px);
+}
+
+.experience-card > div > .date {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(175, 175, 175);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.experience-card > div > a > .title {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(245, 245, 245);
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 0.95;
+}
+
+.external-link {
+  display: inline-block;
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 100;
+  font-size: 12px;
+  transition: all 0.1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.description {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 300;
+  font-size: 14px;
+  color: rgb(185, 185, 185);
+  line-height: 1.2;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tags > span {
+  padding: 3px 15px;
+  background-color: black;
+  background-image: linear-gradient(
+    45deg,
+    rgba(85, 153, 255, 0.4) 0%,
+    rgba(220, 114, 255, 0.4) 100%
+  );
+  border-radius: 10% / 50%;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.tags > span > span {
+  font-family: 'Bahnschrift';
+  font-weight: 800;
+  font-size: 13px;
+  background-image: linear-gradient(
+    45deg,
+    rgb(85, 153, 255) 0%,
+    rgb(220, 114, 255) 100%
+  );
+  letter-spacing: -0.5px;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Education Cards */
+
+.education-card > div > .title {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(245, 245, 245);
+  line-height: 1;
+}
+
+.education-card > div > .subtitle {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(215, 215, 215);
+  margin: 0;
+  line-height: 1;
+}
+
+/* Skills Section */
+
+.skills-card > div > .title {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(215, 215, 215);
+  letter-spacing: -0.3px;
+  margin-bottom: 0.75rem;
+}
+
+/* Projects Section */
+
+.project-card > a > img {
+  border-radius: 5%;
+  margin-bottom: 10px;
+}
+
+.project-card .title {
+  font-family: 'Bahnschrift Semicondensed';
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(245, 245, 245);
+  margin-bottom: 10px;
+}

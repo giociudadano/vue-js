@@ -1,0 +1,1 @@
+const appToMount = Vue.createApp({});
